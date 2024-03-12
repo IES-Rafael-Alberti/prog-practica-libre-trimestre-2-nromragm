@@ -1,7 +1,4 @@
 import Terminal.terminal
-import com.github.ajalt.mordant.rendering.BorderType
-import com.github.ajalt.mordant.rendering.TextColors
-import com.github.ajalt.mordant.table.table
 import com.github.ajalt.mordant.rendering.TextColors.*
 
 class Partida(
