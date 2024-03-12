@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="github.ajalt.mordant.jvm1" type="repository">
+    <properties maven-id="com.github.ajalt.mordant:mordant-jvm:2.3.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/ajalt/mordant/mordant-jvm/2.3.0/mordant-jvm-2.3.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/ajalt/colormath/colormath-jvm/3.3.1/colormath-jvm-3.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.20/kotlin-stdlib-jdk8-1.8.20.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.20/kotlin-stdlib-jdk7-1.8.20.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.20/kotlin-stdlib-common-1.8.20.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.9.21/kotlin-stdlib-1.9.21.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/13.0/annotations-13.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/markdown-jvm/0.5.2/markdown-jvm-0.5.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/it/unimi/dsi/fastutil-core/8.5.12/fastutil-core-8.5.12.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
