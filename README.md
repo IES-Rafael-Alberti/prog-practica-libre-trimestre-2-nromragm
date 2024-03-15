@@ -66,7 +66,7 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
 
 #### **Criterio global 1: Instancia objetos y hacer uso de ellos**
 - **(2.a, 2.b, 2.c, 2.d, 2.f, 2.h, 4.f, 4.a)**: Describe cómo has instanciado y utilizado objetos en tu proyecto. ¿Cómo has aplicado los constructores y pasado parámetros a los métodos? Proporciona ejemplos específicos de tu código.
-- Respuesta: He instanciado objetos para representar entidades del juego por ejemplo el jugador, para instanciarlo he llamado al constructor con los paramentros necesarios a la hora de crear el personaje
+- **Respuesta**: He instanciado objetos para representar entidades del juego por ejemplo el jugador, para instanciarlo he llamado al constructor con los paramentros necesarios a la hora de crear el personaje
 - 
 
 #### **Criterio global 2: Crear y llamar métodos estáticos**
