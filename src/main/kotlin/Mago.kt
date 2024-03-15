@@ -29,7 +29,7 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
      *
      * @return true si el ataque es crítico, false en caso contrario.
      */
-    fun esCritico(): Boolean {
+    private fun esCritico(): Boolean {
         return Random.nextInt(10) <= 3
     }
 
@@ -207,7 +207,7 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
     override fun toString(): String {
         return "Mago(Nombre: $nombre, Vida: $vida, Fuerza: $fuerza , Defensa: $defensa, Mana: $mana, Pociones: $pociones)"
     }
-    
+
     /**
      * Muestra los atributos del mago en una tabla con colores personalizados para el borde y el estilo de la tabla.
      */
