@@ -66,6 +66,11 @@ class Monstruo(
         }
     }
 
+    /**
+     * Método que verifica si el monstruo está vivo.
+     *
+     * @return true si el monstruo está vivo, false de lo contrario.
+     */
     override fun estaVivo(): Boolean {
         return vida > 0
     }
@@ -82,6 +87,9 @@ class Monstruo(
         return "Monstruo(Nombre: $nombre, Vida: $vida, Fuerza: $fuerza, Defensa: $defensa, Tipo: $tipoMonstruo)"
     }
 
+    /**
+     * Muestra las estadísticas del monstruo.
+     */
     override fun mostrarStats() {
         // Crear la tabla
         val stats = table {
