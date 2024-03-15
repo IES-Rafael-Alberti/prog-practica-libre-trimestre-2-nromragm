@@ -268,6 +268,7 @@ object Gestion {
         a.stop()
         println()
     }
+
     /**
      * Método para mostrar información sobre las dificultades del juego.
      */
@@ -288,7 +289,6 @@ object Gestion {
             else -> Dificultad.DIFICIL
         }
     }
-
 
     /**
      * Extiende la clase [String] para permitir capitalizar cada palabra en una cadena de caracteres.

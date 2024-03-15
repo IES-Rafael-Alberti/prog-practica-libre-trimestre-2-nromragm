@@ -20,7 +20,7 @@ abstract class Aventurero(
 ) : Combate {
 
     // Inventario que contendria los items soltados por los monstruos al morir
-    val inventario: Inventario<Any> = Inventario()
+//    val inventario: Inventario<Any> = Inventario()
 
     /**
      * Definición de propiedades y métodos estáticos relacionados con los aventureros.

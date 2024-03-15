@@ -4,6 +4,8 @@ import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.table.table
 import com.github.ajalt.mordant.terminal.Terminal
 
+//Inetento de principio solid rarete
+
 /**
  * Interfaz que define una acción que puede realizar un jugador en el juego.
  */

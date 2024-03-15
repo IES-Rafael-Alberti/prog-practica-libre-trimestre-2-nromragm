@@ -7,9 +7,9 @@ import Gestion.obtenerDificultad
 
 fun main() {
 
-    mostrarMensajeInicial()
-    mostrarMenuDificultades()
-    mostrarDificultadInfo()
+    mostrarMensajeInicial() // Muestra el mensaje inicial
+    mostrarMenuDificultades() // Muestra el menu de dificultades
+    mostrarDificultadInfo() // Muestra info sobre dificultad
 
     val dificultad = obtenerDificultad()
     val jugador = crearPersonaje()

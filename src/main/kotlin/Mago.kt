@@ -7,6 +7,12 @@ import com.github.ajalt.mordant.table.table
 import kotlin.random.Random
 import com.github.ajalt.mordant.rendering.TextColors.*
 
+
+/**
+ * Clase que representa a un mago, una subclase de [Aventurero].
+ *
+ * @param nombre El nombre del mago.
+ */
 class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
     private var mana: Int = MANA_MAXIMO
     private var haUsadoHabilidadDefinitiva = false
@@ -18,11 +24,21 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
         const val VIDA_MAXIMA = 800
     }
 
-    private fun esCritico(): Boolean {
+    /**
+     * Verifica si un ataque realizado por el mago es crítico.
+     *
+     * @return true si el ataque es crítico, false en caso contrario.
+     */
+    fun esCritico(): Boolean {
         return Random.nextInt(10) <= 3
     }
 
 
+    /**
+     * Realiza el hechizo de la Bola de Fuego.
+     *
+     * @return El daño infligido por el hechizo.
+     */
     private fun hechizoBolaDeFuego(): Int {
         val costoMana = 30
         return if (puedeLanzarHechizo(costoMana)) {
@@ -41,6 +57,11 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
         }
     }
 
+    /**
+     * Realiza el hechizo del Rayo.
+     *
+     * @return El daño infligido por el hechizo.
+     */
     private fun hechizoRayo(): Int {
         val costoMana = 50
 
@@ -60,6 +81,11 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
         }
     }
 
+    /**
+     * Realiza la habilidad definitiva del mago.
+     *
+     * @return El daño infligido por la habilidad definitiva.
+     */
     private fun habilidadDefinitiva(): Int {
 
         if (!haUsadoHabilidadDefinitiva) {
@@ -76,6 +102,10 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
         }
     }
 
+    /**
+     * Permite al mago curarse utilizando una poción.
+     * Restaura tanto la vida como el mana del mago si tiene pociones disponibles.
+     */
     override fun curarse() {
         if (pociones > 0) {
             val vidaPocion = if (vida + CURA_POCION > VIDA_MAXIMA) VIDA_MAXIMA - vida else CURA_POCION  // Cura 200 puntos de vida
@@ -90,14 +120,28 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
         }
     }
 
-    private fun puedeLanzarHechizo(costoMana: Int): Boolean {
+    /**
+     * Verifica si el mago puede lanzar un hechizo dado el costo de mana.
+     *
+     * @param costoMana El costo de mana del hechizo.
+     * @return true si el mago tiene suficiente mana para lanzar el hechizo, false en caso contrario.
+     */
+    fun puedeLanzarHechizo(costoMana: Int): Boolean {
         return mana >= costoMana
     }
 
+    /**
+     * Reduce el mana del mago al lanzar un hechizo.
+     *
+     * @param costoMana El costo de mana del hechizo.
+     */
     private fun gastarMana(costoMana: Int) {
         mana -= costoMana
     }
 
+    /**
+     * Muestra el menú de ataques del mago, incluyendo los hechizos disponibles y su información.
+     */
     override fun mostrarMenuAtaques() {
         val menu = table {
             header {
@@ -142,6 +186,11 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
         terminal.println(menu)
     }
 
+    /**
+     * Realiza un ataque utilizando los hechizos del mago.
+     *
+     * @return El daño infligido por el hechizo seleccionado.
+     */
     override fun atacar(): Int {
         mostrarMenuAtaques()
 
@@ -158,7 +207,7 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
     override fun toString(): String {
         return "Mago(Nombre: $nombre, Vida: $vida, Fuerza: $fuerza , Defensa: $defensa, Mana: $mana, Pociones: $pociones)"
     }
-
+    
     /**
      * Muestra los atributos del mago en una tabla con colores personalizados para el borde y el estilo de la tabla.
      */

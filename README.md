@@ -84,6 +84,14 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
 #### **Criterio global 2: Crear y llamar métodos estáticos**
 - **(4.i)**: ¿Has definido algún método/propiedad estático en tu proyecto? ¿Cuál era el objetivo y por qué consideraste que debía ser estático en lugar de un método/propiedad de instancia?
 - **Respuesta**: El objetivo era crear constantes como la vida maxima o la cura de la pocion
+~~~
+    companion object {
+        const val MANA_MAXIMO = 500
+        const val MANA_POCION = 100
+        const val DANIO_HABILIDAD_DEFINITIVA = 999
+        const val VIDA_MAXIMA = 800
+    }
+~~~
 - **(2.e)**: ¿En qué parte del código se llama a un método estático o se utiliza la propiedad estática?
 ~~~
     open fun curarse() {
@@ -104,18 +112,77 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
 #### **Criterio global 4: Definir clases y su contenido**
 - **(4.b, 4.c, 4.d, 4.g)**: Explica sobre un ejemplo de tu código, cómo definiste las clases en tu proyecto, es decir como identificaste las de propiedades, métodos y constructores y modificadores del control de acceso a métodos y propiedades, para representar al objeto del mundo real. ¿Cómo contribuyen estas clases a la solución del problema que tu aplicación aborda?
 - **Respuesta**: En mi proyecto, defini las clases identificando las propiedades y metodos necesarios para representar objetos como aventureros, monstruos... Las clases tienen constructores para inicializar sus propiedades y metodos para realizar acciones. Por ejemplo, la clase Mago tiene propiedades como nombre, vida, y metodos como curarse(), atacar()
+
 #### **Criterio global 5: Herencia y uso de clases abstractas e interfaces**
 - **(4.h, 4.j, 7.a, 7.b, 7.c)**: Describe sobre tu código cómo has implementado la herencia o utilizado interfaces en tu proyecto. ¿Por qué elegiste este enfoque y cómo beneficia a la estructura de tu aplicación? ¿De qué manera has utilizado los principios SOLID para mejorar el diseño de tu proyecto? ¿Mostrando tu código, contesta a qué principios has utilizado y qué beneficio has obtenido?
-- **Respuesta**: En mi proyecto, he utilizado la herencia para compartir comportamientos y propiedades comunes entre clases relacionadas. Por ejemplo, tengo una clase abstracta Aventurero de la cual heredan las clases Mago y Guerrero, ya que ambos comparten ciertas características y comportamientos de un aventurero. También he utilizado interfaces para definir comportamientos comunes que varias clases implementan. Por ejemplo, tengo una interfaz Combatiente que definen metodos como atacar(), recibirAtaque()... que pueden realizar tanto el aventurero como los monstruos.
+- **Respuesta**: En mi proyecto, he utilizado la herencia para compartir comportamientos y propiedades comunes entre clases relacionadas. Por ejemplo, tengo una clase abstracta Aventurero de la cual heredan las clases Mago y Guerrero, ya que ambos comparten ciertas características y comportamientos de un aventurero. También he utilizado interfaces para definir comportamientos comunes que varias clases implementan. Por ejemplo, tengo una interfaz Combatiente que definen metodos como atacar(), recibirAtaque()... que pueden realizar tanto el aventurero como los monstruos. Y por ultimo he intentado aplicar de forma correctas los principios SOLID haciendo que cada clase tenga una responsabilidad unica o intentando aplicar el principio abierto/cerrado (OCP)
+~~~
+abstract class Aventurero(
+    val nombre: String,
+    var vida: Int,
+    var fuerza: Int,
+    var defensa: Int,
+    var pociones: Int,
+) : Combate {
+
+/**
+ * Interfaz que define las operaciones de combate para un personaje o monstruos en el juego.
+ */
+interface Combate {
+    fun atacar(): Int
+    fun recibirAtaque(danio: Int)
+    fun estaVivo(): Boolean
+    fun mostrarStats()
+}
+
+~~~
 #### **Criterio global 6: Diseño de jerarquía de clases**
 - **(7.d, 7.e, 7.f, 7.g)**: Presenta la jerarquía de clases que diseñaste. ¿Cómo probaste y depuraste esta jerarquía para asegurar su correcto funcionamiento? ¿Qué tipo de herencia has utilizado: Especificación, Especialización, Extensión, Construcción?
-
+- **Respuesta**: He utilizado la herencia por especialización. Este tipo de herencia implica que las clases derivadas (subclases) son una forma más específica o especializada de la clase base (superclase). Tengo una superclase abstracta Aventurero y dos subclases Mago y Guerrero(no implementada) que son tipos especificos de aventurero
 #### **Criterio global 7: Librerías de clases**
 - **(2.g, 4.k)**: Describe cualquier librería externa que hayas incorporado en tu proyecto. Explica cómo y por qué las elegiste, y cómo las incorporaste en tu proyecto. ¿Cómo extendió la funcionalidad de tu aplicación? Proporciona ejemplos específicos de su uso en tu proyecto.
-
+- **Respuesta**: He usado Mordant que proporciona utilidades para el formato de texto y la impresion en la consola de forma mas avanzada y con colores.
+~~~
+    override fun mostrarStats() {
+        // Crear la tabla
+        val stats = table {
+            borderStyle = brightRed
+            style = brightWhite
+            header {
+                row("Atributo", "Valor")
+                style = TextColors.rgb("#4b25b9")
+            }
+            body {
+                row("Nombre", nombre)
+                row("Vida", vida.toString())
+                row("Fuerza", fuerza.toString())
+                row("Defensa", defensa.toString())
+                row("Tipo", tipoMonstruo)
+            }
+        }
+        terminal.println(stats)
+        println()
+    }
+~~~
 #### **Criterio global 8: Documentado**
 - **(7.h)**: Muestra ejemplos de cómo has documentado y comentado tu código. ¿Que herramientas has utilizado? ¿Cómo aseguras que tu documentación aporte valor para la comprensión, mantenimiento y depuración del código?
-
+- **Respuesta**: He documentado usando Kdoc con la ayuda de inteligencia artificial(Chat GPT) para agilizar el proceso.  Me aseguro de que mi documentacion sea clara y concisa, proporcionando detalles sobre el proposito y el funcionamiento de cada parte del código
 #### **Criterio global 9: Genéricos**
 - **(6.f)**: Muestra ejemplos de tu código sobre cómo has implementado una clase con genéricos. ¿Qué beneficio has obtenido?
+- **Respuesta**: He "intentado" usar genericos haciendo una clase inventario para los aventureros que agregen items<T> que sueltan los monstruos al morir
+```Kotlin
+class Inventario<T> {
+    private val items: MutableList<Item<T>> = mutableListOf()
 
+    fun agregarItem(item: Item<T>) {
+        items.add(item)
+    }
+
+    fun mostrarInventario() {
+        println("Inventario:")
+        items.forEachIndexed { index, item ->
+            println("${index + 1}. ${item.contenido}, Descripcion: ${item.desc}")
+        }
+    }
+}
+```
