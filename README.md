@@ -80,6 +80,7 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
                 Mago(nombre)
             }
 ```
+[Link del repo](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-nromragm/blob/089ffe32adedfc637328aedc05c16001e905cbe5/src/main/kotlin/Gestion.kt#L118-L127)
 
 ---
 
@@ -94,6 +95,8 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
         const val VIDA_MAXIMA = 800
     }
 ```
+[Link del repo](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-nromragm/blob/089ffe32adedfc637328aedc05c16001e905cbe5/src/main/kotlin/Mago.kt#L20-L24)
+
 - **(2.e)**: ¿En qué parte del código se llama a un método estático o se utiliza la propiedad estática?
 ```Kotlin
     open fun curarse() {
@@ -106,6 +109,7 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
         }
     }
 ```
+[Link del repo](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-nromragm/blob/089ffe32adedfc637328aedc05c16001e905cbe5/src/main/kotlin/Aventurero.kt#L70-L78)
 
 ---
 
@@ -142,8 +146,9 @@ interface Combate {
     fun estaVivo(): Boolean
     fun mostrarStats()
 }
-
 ```
+[Link del repo](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-nromragm/blob/089ffe32adedfc637328aedc05c16001e905cbe5/src/main/kotlin/Aventurero.kt#L14-L20)
+[Link del repo, Interfaz](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-nromragm/blob/089ffe32adedfc637328aedc05c16001e905cbe5/src/main/kotlin/Combate.kt#L4-L9)
 
 ---
 
@@ -178,6 +183,7 @@ interface Combate {
         println()
     }
 ```
+[Link del repo](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-nromragm/blob/089ffe32adedfc637328aedc05c16001e905cbe5/src/main/kotlin/Mago.kt#L214-L237)
 
 ---
 
@@ -206,3 +212,4 @@ class Inventario<T> {
     }
 }
 ```
+[Link del repo](https://github.com/IES-Rafael-Alberti/prog-practica-libre-trimestre-2-nromragm/blob/089ffe32adedfc637328aedc05c16001e905cbe5/src/main/kotlin/Inventario.kt#L1-L14)
