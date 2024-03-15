@@ -19,6 +19,7 @@ abstract class Aventurero(
     var pociones: Int,
 ) : Combate {
 
+    // Inventario que contendria los items soltados por los monstruos al morir
     val inventario: Inventario<Any> = Inventario()
 
     /**

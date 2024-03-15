@@ -1,3 +1,4 @@
+// Aqui deberia de estar creada una clase guerrero tope de guapa
 class Guerrero(nombre: String) : Aventurero(nombre, 1000, 15, 10, 5) {
 
 

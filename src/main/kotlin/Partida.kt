@@ -55,7 +55,7 @@ class Partida(
 
             if (!monstruo.estaVivo()) {
                 monstrarMensaje("¡El ${monstruo.nombre} ha sido derrotado!", brightBlue)
-                val item = monstruo.soltarItem()
+//                val item = monstruo.soltarItem()
 //                jugador.inventario.agregarItem(item) //Arreglar
 
             } else {

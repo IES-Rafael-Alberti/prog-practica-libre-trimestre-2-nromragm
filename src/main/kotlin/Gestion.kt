@@ -34,7 +34,7 @@ object Gestion {
      *
      * @return El nombre generado para el personaje.
      */
-    fun generarNombre(): String {
+    private fun generarNombre(): String {
         var nombre = ""
         var salir = false
 
@@ -81,7 +81,7 @@ object Gestion {
     /**
      * Método para mostrar el menú de selección de clases.
      */
-    fun mostrarMenuClases() {
+    private fun mostrarMenuClases() {
 
         val tablaClases = table {
             borderType = BorderType.SQUARE_DOUBLE_SECTION_SEPARATOR
@@ -126,10 +126,11 @@ object Gestion {
                 val nombre = generarNombre().capitalizar()
                 Mago(nombre)
             }
+            //Terminare el guerrero?
             else -> {
-                monstrarMensaje("Has elegido la clase Guerrero.", brightBlue)
+                monstrarMensaje("Has elegido la clase Mago porque el guerrero no esta implementado :(.", brightBlue)
                 val nombre = generarNombre().capitalizar()
-                Guerrero(nombre)
+                Mago(nombre)
             }
         }
     }
@@ -300,11 +301,11 @@ object Gestion {
         return this.split(" ").joinToString(" ") { it.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() } }
     }
 
-    val listaItems = listOf(
-        Item(100, "Monedas de oro"),
-        Item("Gema", "Gema magica misteriosa"),
-        Item(Monstruo("Huevo monstruo", 1, 1, 1, TipoMonstruo.NORMAL), "Huevo dejado por el monstruo"),
-        Item("Espada Legendaria", "Espada"),
-        Item(Terminal(), "Terminal?")
-    )
+//    val listaItems = listOf(
+//        Item(100, "Monedas de oro"),
+//        Item("Gema", "Gema magica misteriosa"),
+//        Item(Monstruo("Huevo monstruo", 1, 1, 1, TipoMonstruo.NORMAL), "Huevo dejado por el monstruo"),
+//        Item("Espada Legendaria", "Espada"),
+//        Item(Terminal(), "Terminal?")
+//    )
 }
