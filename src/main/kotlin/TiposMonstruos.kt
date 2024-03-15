@@ -1,3 +1,0 @@
-enum class TipoMonstruo {
-    NORMAL, VENENOSO, BERSERKER, VAMPIRO, ACORAZADO
-}

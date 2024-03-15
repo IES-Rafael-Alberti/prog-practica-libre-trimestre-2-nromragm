@@ -1,4 +1,5 @@
-import Terminal.terminal
+import Gestion.pedirOpcion
+import Gestion.terminal
 import com.github.ajalt.mordant.rendering.TextAlign
 import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.table.Borders
@@ -12,7 +13,9 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
 
     companion object {
         const val MANA_MAXIMO = 500
+        const val MANA_POCION = 100
         const val DANIO_HABILIDAD_DEFINITIVA = 999
+        const val VIDA_MAXIMA = 800
     }
 
     private fun esCritico(): Boolean {
@@ -73,6 +76,19 @@ class Mago(nombre: String) : Aventurero(nombre, 800, 15, 5, 3) {
         }
     }
 
+    override fun curarse() {
+        if (pociones > 0) {
+            val vidaPocion = if (vida + CURA_POCION > VIDA_MAXIMA) VIDA_MAXIMA - vida else CURA_POCION  // Cura 200 puntos de vida
+            vida += vidaPocion
+            val manaPocion = if (mana + MANA_POCION > MANA_MAXIMO) MANA_MAXIMO - mana else MANA_POCION // Recupera 100 de mana
+            mana += manaPocion
+            pociones--
+            terminal.println(brightGreen("$nombre se ha curado $vidaPocion puntos de vida."))
+            terminal.println(brightGreen("$nombre ha recuperado $manaPocion de mana."))
+        } else {
+            terminal.println(brightRed("$nombre no tiene pociones."))
+        }
+    }
 
     private fun puedeLanzarHechizo(costoMana: Int): Boolean {
         return mana >= costoMana

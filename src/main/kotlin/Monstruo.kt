@@ -1,4 +1,5 @@
-import Terminal.terminal
+import Gestion.listaItems
+import Gestion.terminal
 import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.table.table
 import com.github.ajalt.mordant.rendering.TextColors.*
@@ -17,11 +18,13 @@ class Monstruo(
     var vida: Int,
     private var fuerza: Int,
     private var defensa: Int,
-    private val tipoMonstruo: TipoMonstruo = TipoMonstruo.NORMAL
+    private val tipoMonstruo: TipoMonstruo = TipoMonstruo.NORMAL,
+    private val item: Item<out Any> = listaItems.random()
 ) : Combate {
 
     /**
      * Realiza un ataque del monstruo.
+     * Varia segun el tipo de monstruo
      *
      * @return El daño infligido por el ataque.
      */
@@ -40,6 +43,7 @@ class Monstruo(
 
     /**
      * Recibe un ataque del oponente.
+     * Varia segun el tipo de monstruo
      *
      * @param danio El daño infligido por el oponente.
      */
@@ -64,6 +68,8 @@ class Monstruo(
     override fun estaVivo(): Boolean {
         return vida > 0
     }
+
+    fun soltarItem() = item
 
     /**
      * Sobrescribe el método toString de la clase [Monstruo] para ofrecer una representación textual detallada del monstruo,
@@ -93,5 +99,6 @@ class Monstruo(
             }
         }
         terminal.println(stats)
+        println()
     }
 }
